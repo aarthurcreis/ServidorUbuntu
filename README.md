@@ -327,8 +327,10 @@ sudo ufw allow 22/tcp
 cloudflared tunnel --url http://localhost:80 # no caso do Apache
 ```
 
-Após isso, será gerado um link aleatório `.trycloudflare.com` que irá redirecionar quem acessar para a porta que foi aberta no servidor. Por ser um link grande e aleatório, pode ser recomendado o uso de um encurtador. Aprofundamento pelo artigo da Clouflare:
-https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/
+Após isso, será gerado um link aleatório `.trycloudflare.com` que irá redirecionar quem acessar para a porta que foi aberta no servidor. Por ser um link grande e aleatório, pode ser recomendado o uso de um encurtador.
+
+**[Artigo da Clouflare sobre os túneis](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/)** <br>
+
 
 <br>
 
@@ -383,8 +385,7 @@ Administra as *permissões* de arquivos e diretórios. A flag -R aplica as alter
 chmod -R 777 /var/www
 # dá todas as permissões para os usuários, grupos e outros
 ```
-**Aprofundamento pelo canal DioLinux:** <br>
-**https://youtu.be/sq6pd18X63Q?si=UvwRmxduSoplBsCI**
+**[Vídeo por DioLinux sobre o comando](https://youtu.be/sq6pd18X63Q?si=UvwRmxduSoplBsCI)**
 
 <br>
 
