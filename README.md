@@ -138,7 +138,9 @@ sudo systemctl enable php8.2-fpm
 sudo systemctl status php8.2-fpm
 ```
 
-### Configurar Nginx (se pronuncia "engine x")
+<br>
+
+### Configurar Nginx (pronuncia-se "engine x")
 
 ```bash
 sudo systemctl start nginx
