@@ -327,13 +327,13 @@ sudo ufw allow 22/tcp
 cloudflared tunnel --url http://localhost:80 # no caso do Apache
 ```
 
-Após isso, será gerado um link aleatório `.trycloudflare.com` que irá redirecionar quem acessar para a porta que foi aberta no servidor. Por ser um link grande e aleatório, pode ser recomendado o uso de um encurtador. Leitura recomendada sobre o funcionamento dos túneis:
+Após isso, será gerado um link aleatório `.trycloudflare.com` que irá redirecionar quem acessar para a porta que foi aberta no servidor. Por ser um link grande e aleatório, pode ser recomendado o uso de um encurtador. Aprofundamento pelo artigo da Clouflare:
 https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/
 
 <br>
 
 # Comandos no Linux
-Os `comandos` em qualquer distro servem para locomoção e configuração dentro sistema operacional. Desse modo, para utilizar a funcionalidade de um comando, usamos `subcomandos` após a definição inicial dele, assim, decidimos que comportamento ele tomará. Somado a isso, a grande maioria dos comandos se apoia em `flags`, uma letra ou palavra antecedida por um ou dois hífens (-), elas modificam *como* o comando é executado. Alguns comandos não têm subcomandos, apenas flags, que podem ou não serem obrigatórias. Por fim, vem o argumento, o "alvo", onde o comando vai agir. Abaixo vou listar alguns comandos e flags que utilizei dentro da arquitetura do projeto, não chegando nem perto da quantidade total ou completa de ambos. Exemplo:
+Os `comandos` em qualquer distro servem para locomoção e configuração dentro sistema operacional. Desse modo, para utilizar a funcionalidade de um comando, usamos `subcomandos` após a definição inicial dele, assim, decidimos que comportamento ele tomará. Somado a isso, a grande maioria dos comandos se apoia em `flags`, uma letra ou palavra antecedida por um ou dois hífens (-), elas modificam *como* o comando é executado. Alguns comandos não têm subcomandos, apenas flags, que podem ou não serem obrigatórias. Por fim, vem o argumento, o "alvo", onde o comando vai agir. Abaixo listarei alguns comandos e flags que utilizei dentro da arquitetura do projeto, não chegando nem perto da quantidade total ou completa de ambos. Exemplo:
 
 <br>
 
@@ -383,7 +383,7 @@ Administra as *permissões* de arquivos e diretórios. A flag -R aplica as alter
 chmod -R 777 /var/www
 # dá todas as permissões para os usuários, grupos e outros
 ```
-**Vídeo de aprofundamento pelo canal DioLinux:** <br>
+**Aprofundamento pelo canal DioLinux:** <br>
 **https://youtu.be/sq6pd18X63Q?si=UvwRmxduSoplBsCI**
 
 <br>
