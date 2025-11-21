@@ -1,4 +1,4 @@
-# Configurando Servidor Ubuntu 25.10
+# Configurando Servidor Ubuntu 25.10 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 <img src="src/print.png" align="right" width="250">
 
