@@ -67,7 +67,7 @@ sudo systemctl start isc-dhcp-server
 sudo systemctl status isc-dhcp-server
 ```
 
-### Verificar caso dê erro
+### Verificar caso dê erro (checar logs)
 
 ```bash
 sudo dhcpd -t -cf /etc/dhcp/dhcpd.conf
@@ -100,7 +100,7 @@ sudo chown root:root /etc/dhcp/dhcpd.conf
 
 ```bash
 ip route get 8.8.8.8
-# Exemplo de saída:
+# exemplo de saída:
 # 8.8.8.8 via 192.168.0.10 dev enp2s0 src 192.168.0.11 uid 0
 ```
 <br>
@@ -393,8 +393,8 @@ chmod -R 777 /var/www
 Administra o *dono* e/ou grupo do arquivo/diretório. Ex:
 
 ```
-chown -R usuario:usuarios /var/www
-# altera o dono do diretório para o usuário usuario e pro grupo usuarios
+chown -R usuario1:alunos /var/www
+# altera o dono do diretório para o usuário usuario1 e pro grupo alunos
 ```
 
 <br>
@@ -402,7 +402,7 @@ chown -R usuario:usuarios /var/www
 
 ### mkdir (make directory)
 
-Cria um *diretório* no caminho especificado. Ex:
+Cria um *diretório* no caminho atual ou especificado. Ex:
 
 ```bash
 mkdir -p /srv/backup/hoje
@@ -410,6 +410,14 @@ mkdir -p /srv/backup/hoje
 
 <br>
 
+### touch
+Cria um *arquivo* no caminho atual ou especificado. Ex:
+
+```bash
+touch arquivo.txt
+```
+
+<br>
 
 ### cp (copy)
 
@@ -442,7 +450,6 @@ ls -l /home/usuario
 ```
 
 <br>
-
 
 ### tail
 
@@ -524,6 +531,6 @@ Ele pega a saída de um comando e transforma em argumentos para outro comando. A
 ```bash
 ls -1 /home/user | xargs -d '\n' rm
 # -1 do ls garante uma linha por arquivo
-# -d '\n' garante que ele use somente a quebra de linha como separador
+# -d '\n' faz com que ele use a quebra de linha como separador
 # deleta todos os arquivos em /home/user
 ```
