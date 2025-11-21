@@ -2,7 +2,7 @@
 
 <img src="src/print.png" align="right" width="250">
 
-Modelo de configuração de um Ubuntu server com instâncias para: servidor DHCP, duas NICs, duas aplicações em servidor web com Apache e Nginx, concatenados ao PostgreSQL e MariaDB, consecutivamente, servidor de arquivos com Samba e nuvem pessoal utilizando o NextCloud. As aplicações e a nuvem ficam disponíveis via acesso web por meio de túneis Cloudflare (túneis temporários com URLs aleatórias). É recomendado o estudo externo de cada tópico singular para maximizar o domínio sobre os temas.
+Modelo de configuração de um Ubuntu server com instâncias para: servidor DHCP, duas NICs, duas aplicações em servidor web com Apache e Nginx, concatenados ao PostgreSQL e MariaDB, consecutivamente, servidor de arquivos com Samba e nuvem pessoal utilizando o NextCloud. As aplicações e a nuvem ficam disponíveis via acesso web por meio de túneis Cloudflare. É recomendado o estudo externo de cada tópico singular para maximizar o domínio sobre os temas.
 
 Após o término da configuração inicial do servidor, para conseguir instalar todas as dependências necessárias, é preciso do `curl`, ele é um programa que permite baixar ou enviar dados usando protocolos de rede (HTTP, HTTPS...). Então, caso já não tenha, instale com:
 
@@ -327,7 +327,7 @@ sudo ufw allow 22/tcp
 cloudflared tunnel --url http://localhost:80 # no caso do Apache
 ```
 
-Após isso, será gerado um link aleatório que irá redirecionar para a porta aberta do servidor, de dentro pra fora, sem port forwarding. Por ser um link grande e aleatório, pode ser recomendado o uso de um encurtador. Leitura recomendada sobre o funcionamento dos túneis:
+Após isso, será gerado um link aleatório `.trycloudflare.com` que irá redirecionar quem acessar para a porta que foi aberta no servidor. Por ser um link grande e aleatório, pode ser recomendado o uso de um encurtador. Leitura recomendada sobre o funcionamento dos túneis:
 https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/
 
 <br>
