@@ -4,7 +4,9 @@ Esse documente não tem nenhum aprofundamento teórico notável em nenhuma parte
 
 # Configurando Servidor Ubuntu 25.10
 
-resumo
+<img src="src/print.png" align="right" width="275">
+
+Modelo de configuração de um Ubuntu server com instâncias para: servidor DHCP, duas NICs, duas aplicações em servidor web com Apache e Nginx, concatenados ao PostgreSQL e MariaDB, consecutivamente, servidor de arquivos com Samba e nuvem pessoal utilizando o NextCloud. As aplicações e a nuvem ficam disponíveis via acesso web por meio de túneis Cloudflare (túneis temporários com URLs aleatórias).
 
 Após o término da configuração inicial do servidor, para conseguir instalar todas as dependências necessárias, é preciso do `curl`, ele é um programa que permite baixar ou enviar dados usando protocolos de rede (HTTP, HTTPS...). Então, caso já não tenha, instale com:
 
@@ -212,6 +214,8 @@ sudo nginx -t
 sudo systemctl reload nginx
 ```
 
+<br>
+
 ## Configurar servidor de arquivos (Samba)
 ### Criar pasta de arquivos
 
@@ -314,6 +318,19 @@ http://192.168.0.110:8181
 ```
 
 ou pelo domínio configurado.<br><br>
+
+## Subir as aplicações e NextCloud nos túneis
+
+### Fazer o mesmo para cada porta configurada:
+
+```bash
+cloudflared tunnel --url http://localhost:80 # no caso do Apache
+```
+
+Após isso, será gerado um link aleatório que irá redirecionar para a porta aberta do servidor, de dentro pra fora, sem port forwarding. Por ser um link grande e aleatório, pode ser recomendado o uso de um encurtador. Leitura recomendada sobre o funcionamento dos túneis:
+https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/
+
+<br>
 
 # Comandos comuns no Linux
 Os `comandos` em qualquer distro servem para locomoção e configuração dentro sistema operacional. Desse modo, para utilizar a funcionalidade de um comando, usamos `subcomandos` após a definição inicial dele, assim decidimos que comportamento ele tomará. Somado a isso, a grande maioria dos comandos se apoia em `flags`, uma letra ou palavra antecedida por um ou dois hífens (-), elas modificam *como* o comando é executado. Alguns comandos não têm subcomandos, apenas flags, que podem ou não serem obrigatórias. Por fim, vem o argumento, o "alvo", onde o comando vai agir. Exemplo:
