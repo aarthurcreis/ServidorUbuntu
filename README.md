@@ -1,10 +1,6 @@
-Esse documente não tem nenhum aprofundamento teórico notável em nenhuma parte do texto, use-o somente como base para delineamento. É recomendado o estudo externo de cada tópico para maximizar seu entendimento.
-
-<br>
-
 # Configurando Servidor Ubuntu 25.10
 
-<img src="src/print.png" align="right" width="275">
+<img src="src/print.png" align="right" width="250">
 
 Modelo de configuração de um Ubuntu server com instâncias para: servidor DHCP, duas NICs, duas aplicações em servidor web com Apache e Nginx, concatenados ao PostgreSQL e MariaDB, consecutivamente, servidor de arquivos com Samba e nuvem pessoal utilizando o NextCloud. As aplicações e a nuvem ficam disponíveis via acesso web por meio de túneis Cloudflare (túneis temporários com URLs aleatórias).
 
