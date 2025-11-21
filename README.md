@@ -401,7 +401,6 @@ chown -R usuario1:alunos /var/www
 
 
 ### mkdir (make directory)
-
 Cria um *diretório* no caminho atual ou especificado. Ex:
 
 ```bash
@@ -420,7 +419,6 @@ touch arquivo.txt
 <br>
 
 ### cp (copy)
-
 Copia um arquivo ou diretório. A flag `-a` copia tudo preservando os atributos (permissões, donos, timestamps, links simbólicos, estrutura). Ex:
 
 ```bash
@@ -431,7 +429,6 @@ cp -a arquivo.txt /tmp/
 
 
 ### cd (change directory)
-
 Altera o diretório atual naquele terminal. Não utiliza subcomandos ou flags. Caso usado sem um argumento, ele volta para o diretório padrão do usuário. Ex:
 
 ```
@@ -442,7 +439,6 @@ cd /var/log
 
 
 ### ls (list)
-
 Lista arquivos e diretórios em determinado caminho. Normalmente usado junto com a flag `-l` (long listing format), que mostra em um formato mais detalhado. Ex:
 
 ```bash
@@ -452,7 +448,6 @@ ls -l /home/usuario
 <br>
 
 ### tail
-
 Significa "cauda". Mostra o final de um arquivo, normalmente as últimas 10 linhas, mas isso pode ser alterado com a flag `-n`.  Ex:
 
 ```bash
@@ -473,7 +468,6 @@ systemctl status ssh
 <br>
 
 ### ip
-
 Usado para exibir configurações e dados da rede. Ex:
 
 ```bash
@@ -484,12 +478,11 @@ ip addr
 
 
 ### ping
-
 Normalmente usado para verificar a conexão com a Internet. Se não for passada nenhuma condição, ele vai ficar mandando pacotes até ser interrompido. Para evitar isso, use a flag `-c`, que especifica a quantidade de pacotes que ele vai mandar. Ex:
 
 ```bash
 ping -c 4 8.8.8.8
-# envia 4 pacotes para o IP do Google
+# envia 4 pacotes para o IP do Google e verifica resposta
 ```
 
 <br>
@@ -517,7 +510,7 @@ sudo apt install -y curl
 
 
 ### nano
-O `nano` é um editor de texto como o bloco de notas, mas a nível de terminal. Com ele você cria e edita arquivos de texto. Ex:
+O `nano` é um editor de texto comum como o bloco de notas, mas a nível de terminal. Com ele você cria e edita arquivos de texto. Ex:
 
 ```bash
 nano /etc/nginx/nginx.conf
@@ -526,11 +519,11 @@ nano /etc/nginx/nginx.conf
 <br>
 
 ## xargs (extendend arguments)
-Ele pega a saída de um comando e transforma em argumentos para outro comando. A flag `-d` (delimiter) fornece a entrada para que o `xargs` separe cada arquivo. Ex:
+Pega a saída de um comando e transforma em argumentos para outro comando. A flag `-d` (delimiter) fornece a entrada para que o `xargs` separe cada arquivo. Ex:
 
 ```bash
 ls -1 /home/user | xargs -d '\n' rm
-# -1 do ls garante uma linha por arquivo
+# -1 (número um) do ls garante uma linha por arquivo
 # -d '\n' faz com que ele use a quebra de linha como separador
 # deleta todos os arquivos em /home/user
 ```
