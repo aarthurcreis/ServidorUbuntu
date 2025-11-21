@@ -30,5 +30,4 @@ quota
 samba
 tcpdump
 unzip
-webmin
 wget
