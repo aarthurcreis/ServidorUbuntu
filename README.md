@@ -1,8 +1,8 @@
-# Configurando Servidor Ubuntu 25.10 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+# Configurando Servidor Ubuntu 25.10 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 <img src="src/print.png" align="right" width="250">
 
-Modelo de configuração de um Ubuntu server com instâncias para: servidor DHCP, duas NICs, duas aplicações em servidor web com Apache e Nginx, concatenados ao PostgreSQL e MariaDB, consecutivamente, servidor de arquivos com Samba e nuvem pessoal utilizando o NextCloud. As aplicações e a nuvem ficam disponíveis via acesso web por meio de túneis Cloudflare (túneis temporários com URLs aleatórias).
+Modelo de configuração de um Ubuntu server com instâncias para: servidor DHCP, duas NICs, duas aplicações em servidor web com Apache e Nginx, concatenados ao PostgreSQL e MariaDB, consecutivamente, servidor de arquivos com Samba e nuvem pessoal utilizando o NextCloud. As aplicações e a nuvem ficam disponíveis via acesso web por meio de túneis Cloudflare (túneis temporários com URLs aleatórias). É recomendado o estudo externo de cada tópico singular para maximizar o domínio sobre os temas.
 
 Após o término da configuração inicial do servidor, para conseguir instalar todas as dependências necessárias, é preciso do `curl`, ele é um programa que permite baixar ou enviar dados usando protocolos de rede (HTTP, HTTPS...). Então, caso já não tenha, instale com:
 
@@ -25,7 +25,7 @@ curl -L https://raw.githubusercontent.com/aarthurcreis/ServidorUbuntu/main/insta
 ```bash
 ip addr
 
-# Exemplo: `enp0s3`, IP do servidor: `192.168.0.110`
+# exemplo: "enp0s3", IP do servidor: "192.168.0.110"
 
 ```
 
@@ -104,31 +104,6 @@ ip route get 8.8.8.8
 # 8.8.8.8 via 192.168.0.10 dev enp2s0 src 192.168.0.11 uid 0
 ```
 <br>
-
-## Liberar as portas das aplicações no firewall
-### Habilitar UFW
-
-```bash
-sudo ufw enable
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
-```
-
-### Liberar portas específicas para os serviços
-
-```bash
-# Apache
-sudo ufw allow 80/tcp
-
-# Nginx
-sudo ufw allow 8080/tcp
-
-# Nextcloud
-sudo ufw allow 8181/tcp
-
-# SSH
-sudo ufw allow 22/tcp
-```
 
 ## Configurar aplicações web (Apache e Nginx)
 ### Configurar Apache
@@ -313,7 +288,36 @@ sudo systemctl restart nextcloud
 http://192.168.0.110:8181
 ```
 
-ou pelo domínio configurado.<br><br>
+ou pelo domínio configurado.
+
+<br>
+
+## Liberar as portas das aplicações no firewall
+### Habilitar UFW
+
+```bash
+sudo ufw enable
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+```
+
+### Liberar portas específicas para os serviços
+
+```bash
+# Apache
+sudo ufw allow 80/tcp
+
+# Nginx
+sudo ufw allow 8080/tcp
+
+# Nextcloud
+sudo ufw allow 8181/tcp
+
+# SSH
+sudo ufw allow 22/tcp
+```
+
+<br>
 
 ## Subir as aplicações e NextCloud nos túneis
 
@@ -328,8 +332,8 @@ https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-
 
 <br>
 
-# Comandos comuns no Linux
-Os `comandos` em qualquer distro servem para locomoção e configuração dentro sistema operacional. Desse modo, para utilizar a funcionalidade de um comando, usamos `subcomandos` após a definição inicial dele, assim decidimos que comportamento ele tomará. Somado a isso, a grande maioria dos comandos se apoia em `flags`, uma letra ou palavra antecedida por um ou dois hífens (-), elas modificam *como* o comando é executado. Alguns comandos não têm subcomandos, apenas flags, que podem ou não serem obrigatórias. Por fim, vem o argumento, o "alvo", onde o comando vai agir. Exemplo:
+# Comandos no Linux
+Os `comandos` em qualquer distro servem para locomoção e configuração dentro sistema operacional. Desse modo, para utilizar a funcionalidade de um comando, usamos `subcomandos` após a definição inicial dele, assim, decidimos que comportamento ele tomará. Somado a isso, a grande maioria dos comandos se apoia em `flags`, uma letra ou palavra antecedida por um ou dois hífens (-), elas modificam *como* o comando é executado. Alguns comandos não têm subcomandos, apenas flags, que podem ou não serem obrigatórias. Por fim, vem o argumento, o "alvo", onde o comando vai agir. Abaixo vou listar alguns comandos e flags que utilizei dentro da arquitetura do projeto, não chegando nem perto da quantidade total ou completa de ambos. Exemplo:
 
 <br>
 
