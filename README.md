@@ -19,7 +19,7 @@ curl -L https://raw.githubusercontent.com/aarthurcreis/ServidorUbuntu/main/insta
 
 <br>
 
-## Configurar SSH
+## Conectar via SSH
 No PowerShell do Windows (dentro da rede LAN):
 
 ```bash
