@@ -26,7 +26,7 @@ No PowerShell do Windows (dentro da rede LAN):
 pedrinho@192.168.0.10 # alterar para seu usuário e IP do servidor
 ```
 
-Após isso, entre com seu usuário e senha. Dessa forma, será possível copiar e colar os comandos do servidor, aumentando a eficiência das configurações.
+Após isso, entre com seu usuário e senha. Dessa forma, será possível copiar e colar os comandos do servidor, otimizando o fluxo das operações.
 
 <br>
 
