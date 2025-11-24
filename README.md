@@ -19,7 +19,18 @@ curl -L https://raw.githubusercontent.com/aarthurcreis/ServidorUbuntu/main/insta
 
 <br>
 
-## Configurar servidor DHCP
+## Configurar SSH
+No PowerShell do Windows (dentro da rede LAN):
+
+```bash
+pedrinho@192.168.0.10 # alterar para seu usuário e IP do servidor
+```
+
+Após isso, entre com seu usuário e senha. Dessa forma, será possível copiar e colar os comandos do servidor, aumentando a eficiência das configurações.
+
+<br>
+
+## Definir servidor DHCP
 ### Descobrir nome da interface LAN
 
 ```bash
@@ -30,7 +41,7 @@ ip addr
 ```
 
 
-### Configurar interface do DHCP
+### Organizar interface do DHCP
 
 ```bash
 sudo nano /etc/default/isc-dhcp-server
@@ -42,7 +53,7 @@ No arquivo:
 INTERFACESv4="enp0s3" # altere conforme sua interface
 ```
 
-### Configurar escopo DHCP
+### Estabelecer escopo DHCP
 
 ```bash
 sudo nano /etc/dhcp/dhcpd.conf
@@ -61,7 +72,7 @@ subnet 192.168.0.0 netmask 255.255.255.0 {
 
 ### Iniciar e habilitar serviço DHCP
 
-```
+```bash
 sudo systemctl enable isc-dhcp-server
 sudo systemctl start isc-dhcp-server
 sudo systemctl status isc-dhcp-server
@@ -77,7 +88,7 @@ sudo chown root:root /etc/dhcp/dhcpd.conf
 ```
 <br>
 
-## Configurar placas de rede (no caso de duas)
+## Regular placas de rede (no caso de duas)
 ### Exemplo (alterar conforme IP e placas):
 
 ```bash
@@ -105,7 +116,7 @@ ip route get 8.8.8.8
 ```
 <br>
 
-## Configurar aplicações web (Apache e Nginx)
+## Preparar aplicações web (Apache e Nginx)
 ### Configurar Apache
 
 ```bash
@@ -140,7 +151,7 @@ sudo systemctl status php8.2-fpm
 
 <br>
 
-### Configurar Nginx (engine x)
+### Ajustar Nginx (engine x)
 
 ```bash
 sudo systemctl start nginx
@@ -155,7 +166,7 @@ sudo systemctl enable mariadb
 sudo systemctl status mariadb
 ```
 
-### Configurar Nginx para processar PHP (exemplo em /etc/nginx/sites-available/default)
+### Provisionar Nginx para processar PHP (exemplo em /etc/nginx/sites-available/default)
 
 ```bash
 server {
@@ -189,21 +200,21 @@ sudo systemctl reload nginx
 
 <br>
 
-## Configurar servidor de arquivos (Samba)
+## Colocar servidor de arquivos em operação (Samba)
+### Criar usuário Samba
+
+```bash
+sudo adduser sambauser
+sudo smbpasswd -a sambauser
+sudo smbpasswd -e sambauser
+```
+
 ### Criar pasta de arquivos
 
 ```bash
 sudo mkdir -p /srv/arquivos
-sudo chown -R usuario1:usuario1 /srv/arquivos # substitua "usuario1" pelo seu usuário
+sudo chown -R sambauser:sambauser /srv/arquivos
 sudo chmod -R 770 /srv/arquivos
-```
-
-### Criar usuário Samba
-
-```bash
-sudo adduser usuario1 
-sudo smbpasswd -a usuario1
-sudo smbpasswd -e usuario1
 ```
 
 ### Configurar compartilhamento
@@ -219,8 +230,8 @@ Adicione no final:
    path = /srv/arquivos
    browseable = yes
    read only = no
-   valid users = usuario1
-   force user = usuario1
+   valid users = sambauser
+   force user = sambauser
 ```
 
 ### Reiniciar Samba
@@ -238,10 +249,12 @@ No Windows Explorer, digite:
 \\192.168.0.110\Arquivos
 ```
 
-Use o usuário e senha configurados (`usuario1`).<br><br>
+Use o usuário e senha configurados (`sambauser`).
+
+<br>
 
 ## Configurando Nextcloud
-### Configurar domínios confiáveis
+### Implementando domínios confiáveis
 
 ```bash
 sudo nano /var/snap/nextcloud/current/nextcloud/config/config.php
@@ -314,9 +327,6 @@ sudo ufw allow 8080/tcp
 
 # Nextcloud
 sudo ufw allow 8181/tcp
-
-# SSH
-sudo ufw allow 22/tcp
 ```
 
 <br>
@@ -524,8 +534,8 @@ nano /etc/nginx/nginx.conf
 Pega a saída de um comando e transforma em argumentos para outro comando. A flag `-d` (delimiter) fornece a entrada para que o `xargs` separe cada arquivo. Ex:
 
 ```bash
-ls -1 /home/user | xargs -d '\n' rm
+ls -1 /home/pedrinho | xargs -d '\n' rm
 # -1 (número um) do ls garante uma linha por arquivo
 # -d '\n' faz com que ele use a quebra de linha como separador
-# deleta todos os arquivos em /home/user
+# deleta todos os arquivos em /home/pedrinho
 ```
