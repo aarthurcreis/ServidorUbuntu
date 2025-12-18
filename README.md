@@ -2,9 +2,9 @@
 
 <img src="src/print.png" align="right" width="250">
 
-Modelo de configuração de um Ubuntu server com instâncias para: servidor DHCP, duas NICs, duas aplicações em servidor web com Apache e Nginx, concatenados ao PostgreSQL e MariaDB, consecutivamente, servidor de arquivos com Samba e nuvem pessoal utilizando o NextCloud. As aplicações e a nuvem ficam disponíveis via acesso web por meio de túneis Cloudflare. É recomendado o estudo de cada tópico singular para maximizar o domínio sobre os temas.
+Modelo de configuração de um servidor Linux Ubuntu com instâncias para: servidor DHCP, duas NICs, duas aplicações em servidores web com Apache e Nginx, concatenados ao PostgreSQL e MariaDB, consecutivamente, compartilhamento de arquivos com Samba e nuvem pessoal utilizando o NextCloud. As aplicações e a nuvem ficam disponíveis via acesso web por meio de túneis Cloudflare. É recomendado o estudo de cada tópico singular para maximizar o domínio sobre os temas.
 
-Após o término da configuração inicial do servidor, para conseguir instalar todas as dependências necessárias, é preciso do `curl`, ele é um programa que permite baixar ou enviar dados usando protocolos de rede (HTTP, HTTPS...). Então, caso já não tenha, instale com:
+Após o término da configuração inicial do servidor, para conseguir instalar todas as dependências necessárias, é preciso do `curl`, ele é um programa que permite baixar ou enviar dados usando protocolos de rede. Então, caso já não tenha, instale com:
 
 ```bash
 sudo apt update && sudo apt upgrade -y
@@ -339,7 +339,7 @@ sudo ufw allow 8181/tcp
 cloudflared tunnel --url http://localhost:80 # no caso do Apache
 ```
 
-Após isso, será gerado um link aleatório `.trycloudflare.com` que irá redirecionar quem acessar para a porta que foi aberta no servidor. Por ser um link grande e aleatório, pode ser recomendado o uso de um encurtador.
+Após isso, será gerado um link aleatório `.trycloudflare.com` que irá redirecionar quem acessar para a porta que foi aberta no servidor. Por ser um link grande e aleatório, pode ser recomendado o uso de um encurtador. Evidentemente, este não é um método conveniente para fornecer acesso aos sites a longo prazo, sendo necessários outras abordagens mais flexíveis.
 
 **[Artigo da Clouflare sobre os túneis](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/)** <br>
 
